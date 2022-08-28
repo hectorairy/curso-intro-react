@@ -1,5 +1,6 @@
 import React from "react";
+import "./TodoCounter.css";
 
 export const TodoCounter = () => {
-  return <h2>Has completado 1 de 2 TODOs</h2>;
+  return <h2 className="TodoCounter">Has completado 2 de 3 TODOs</h2>;
 };
