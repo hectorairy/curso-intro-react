@@ -1,25 +1,21 @@
 import React from "react";
+import { useContext } from "react";
+import { TodoContext } from "../../TodoContext";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoCounter } from "../TodoCounter";
 import { TodoItem } from "../TodoItem";
 import { TodoList } from "../TodoList";
 import { TodoSearch } from "../TodoSearch";
 
-export const Todo = ({
-  error,
-  loading,
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  onComplete,
-  onDelete,
-}) => {
+export const Todo = () => {
+  const { error, loading, searchedTodos, onComplete, onDelete } =
+    useContext(TodoContext);
   return (
     <>
-      <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoCounter />
+
+      <TodoSearch />
+
       <TodoList>
         {error && <p>Desespérate, hubo un error :(</p>}
         {loading && <p>Estamos cargando...</p>}
@@ -34,6 +30,7 @@ export const Todo = ({
           />
         ))}
       </TodoList>
+
       <CreateTodoButton />
     </>
   );
