@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-function useTodos(props) {
+function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
@@ -20,7 +20,7 @@ function useTodos(props) {
   } else {
     searchedTodos = todos;
   }
-  const totalTodos = searchedTodos.length;
+  const totalTodos = todos.length;
   const completedTodos = searchedTodos.filter((todo) => todo.completed).length;
 
   const onAddTodo = (text) => {
