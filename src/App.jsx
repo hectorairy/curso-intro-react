@@ -5,6 +5,7 @@ import { Loader } from "./components/Loader";
 import { Modal } from "./components/Modal";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoForm } from "./components/TodoForm";
+import { TodoHeader } from "./components/TodoHeader";
 import { TodoItem } from "./components/TodoItem";
 import { TodoList } from "./components/TodoList";
 import { TodoSearch } from "./components/TodoSearch";
@@ -28,9 +29,11 @@ function App() {
 
   return (
     <>
-      <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos} />
+      <TodoHeader loading={loading}>
+        <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos} />
 
-      <TodoSearch setSearchValue={setSearchValue} />
+        <TodoSearch setSearchValue={setSearchValue} />
+      </TodoHeader>
 
       <TodoList
         error={error}
