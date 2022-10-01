@@ -12,7 +12,10 @@ export const TodoList = ({
   onEmptyTodos,
   onEmptySearchedTodos,
   onRender,
+  children,
 }) => {
+  const render = children || onRender;
+
   return (
     <section>
       {error && onError()}
@@ -21,7 +24,7 @@ export const TodoList = ({
       {!!totalTodos &&
         !searchedTodos.length &&
         onEmptySearchedTodos(searchValue)}
-      {searchedTodos.map(onRender)}
+      {searchedTodos.map(render)}
     </section>
   );
 };

@@ -44,6 +44,7 @@ function App() {
         onEmptySearchedTodos={(searchedText) => (
           <p>No hay resultados para {searchedText}</p>
         )}
+        // Render by render props
         onRender={(todo) => (
           <TodoItem
             key={todo.text}
@@ -53,7 +54,18 @@ function App() {
             onDelete={() => onDelete(todo.text)}
           />
         )}
-      />
+      >
+        {/* Render by render functions */}
+        {/* {(todo) => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => onComplete(todo.text)}
+            onDelete={() => onDelete(todo.text)}
+          />
+        )} */}
+      </TodoList>
 
       <CreateTodoButton
         setIsModalOpen={setIsModalOpen}
