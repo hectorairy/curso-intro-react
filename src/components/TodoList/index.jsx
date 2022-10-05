@@ -24,7 +24,7 @@ export const TodoList = ({
       {!!totalTodos &&
         !searchedTodos.length &&
         onEmptySearchedTodos(searchValue)}
-      {searchedTodos.map(render)}
+      {!loading && !error && searchedTodos.map(render)}
     </section>
   );
 };
