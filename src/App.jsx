@@ -1,3 +1,4 @@
+import { ChangeStorageAlertWithListener } from "./components/ChangeStorageAlert";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { EmptyTodos } from "./components/EmptyTodos";
 import { Error } from "./components/Error";
@@ -25,6 +26,7 @@ function App() {
     setSearchValue,
     onAddTodo,
     setIsModalOpen,
+    synchronizeTodos,
   } = useTodos();
 
   return (
@@ -74,6 +76,8 @@ function App() {
         setIsModalOpen={setIsModalOpen}
         isModalOpen={isModalOpen}
       />
+
+      <ChangeStorageAlertWithListener synchronize={synchronizeTodos} />
       {isModalOpen && (
         <Modal>
           <TodoForm onAddTodo={onAddTodo} setIsModalOpen={setIsModalOpen} />
