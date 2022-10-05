@@ -1,8 +1,9 @@
 import React from "react";
-import { withStorageListener } from "./withStorageListener";
+import { useStorageListener } from "./useStorageListener";
 import "./ChangeStorageAlert.css";
 
-const ChangeStorageAlert = ({ show, synchronize }) => {
+export const ChangeStorageAlert = ({ synchronize }) => {
+  const { show, synchronizeData } = useStorageListener(synchronize);
   if (show) {
     return (
       <div className="ChangeStorageAlert">
@@ -12,7 +13,7 @@ const ChangeStorageAlert = ({ show, synchronize }) => {
           </p>
           <button
             className="ChangeStorageAlert__button"
-            onClick={() => synchronize()}
+            onClick={() => synchronizeData()}
           >
             ¡Muestrame lo nuevo!
           </button>
@@ -23,5 +24,6 @@ const ChangeStorageAlert = ({ show, synchronize }) => {
   return false;
 };
 
-export const ChangeStorageAlertWithListener =
-  withStorageListener(ChangeStorageAlert);
+//  Ejemplo de un High order component
+// export const ChangeStorageAlertWithListener =
+//   withStorageListener(ChangeStorageAlert);
